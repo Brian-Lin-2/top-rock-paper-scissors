@@ -46,7 +46,7 @@ let playRound = (player, computer) => {
 
             break;
 
-        case "Scissor":
+        case "Scissors":
             if (player.toLowerCase() === "rock") {
                 return "You Win! Rock beats Scissors";
             }
@@ -67,6 +67,13 @@ let playRound = (player, computer) => {
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+let game = () => {
+    // Play the rock paper scissors 5 times.
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = "rock";
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
+game();
