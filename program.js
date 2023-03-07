@@ -18,7 +18,7 @@ let playRound = (player, computer) => {
             }
 
             else if (player.toLowerCase() === "scissors") {
-                return "You Lose! Rock beats Scissor";
+                return "You Lose! Rock beats Scissors";
             }
 
             else {
@@ -70,7 +70,7 @@ let playRound = (player, computer) => {
 let game = () => {
     // Play the rock paper scissors 5 times.
     for (let i = 0; i < 5; i++) {
-        const playerSelection = "rock";
+        const playerSelection = prompt("Enter rock, paper, or scissors");
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
     }
