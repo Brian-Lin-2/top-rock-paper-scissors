@@ -1,79 +1,10 @@
-let getComputerChoice = () => {
-    const choice = ["Rock", "Paper", "Scissors"];
-
-    // Random choice between 0-2.
-    // Floor to make sure its random.
-    return choice[Math.floor(Math.random() * 3)];
-}
-
-let playRound = (player, computer) => {
-    switch (computer) {
-        case "Rock":
-            if (player.toLowerCase() === "rock") {
-                return "Tie!";
-            }
-
-            else if (player.toLowerCase() === "paper") {
-                return "You Win! Paper beats Rock";
-            }
-
-            else if (player.toLowerCase() === "scissors") {
-                return "You Lose! Rock beats Scissors";
-            }
-
-            else {
-                return "Invalid Option.";
-            }
-
-        case "Paper":
-            if (player.toLowerCase() === "rock") {
-                return "You Lose! Paper beats Rock";
-            }
-
-            else if (player.toLowerCase() === "paper") {
-                return "Tie!";
-            }
-
-            else if (player.toLowerCase() === "scissors") {
-                return "You Win! Scissor beats Paper";
-            }
-
-            else {
-                return "Invalid Option.";
-            }
-
-        case "Scissors":
-            if (player.toLowerCase() === "rock") {
-                return "You Win! Rock beats Scissors";
-            }
-
-            else if (player.toLowerCase() === "paper") {
-                return "You Lose! Scissors beats Paper";
-            }
-
-            else if (player.toLowerCase() === "scissors") {
-                return "Tie!";
-            }
-
-            else {
-                return "Invalid Option.";
-            }
-    }
-}
-
-// let game = () => {
-//     // Play the rock paper scissors 5 times.
-//     for (let i = 0; i < 5; i++) {
-//         const playerSelection = prompt("Enter rock, paper, or scissors");
-//         const computerSelection = getComputerChoice();
-//         console.log(playRound(playerSelection, computerSelection));
-//     }
-// }
-
-// game();
-
 const rps = document.querySelectorAll('button');
 const result = document.querySelector('.results');
+const playerScoreTotal = document.querySelector('.playerScore');
+const computerScoreTotal = document.querySelector('.computerScore');
+
+let playerScore = 0;
+let computerScore = 0;
 
 // Create eventListeners for each button.
 rps.forEach((value) => {
@@ -90,5 +21,79 @@ rps.forEach((value) => {
         else if (value.className === "scissors") {
             result.textContent = playRound("scissors", getComputerChoice());
         }
+
+        // Update the score after each game.
+        playerScoreTotal.textContent = `Player: ${playerScore}`;
+        computerScoreTotal.textContent = `Computer: ${computerScore}`;
     })
 })
+
+// Functions
+let getComputerChoice = () => {
+    const choice = ["Rock", "Paper", "Scissors"];
+
+    // Random choice between 0-2.
+    // Floor to make sure its random.
+    return choice[Math.floor(Math.random() * 3)];
+}
+
+let playRound = (player, computer) => {
+    switch (computer) {
+        case "Rock":
+            if (player.toLowerCase() === "rock") {
+                return "Tie!";
+            }
+
+            else if (player.toLowerCase() === "paper") {
+                playerScore++;
+                return "You Win! Paper beats Rock";
+            }
+
+            else if (player.toLowerCase() === "scissors") {
+                computerScore++;
+                return "You Lose! Rock beats Scissors";
+            }
+
+            else {
+                return "Invalid Option.";
+            }
+
+        case "Paper":
+            if (player.toLowerCase() === "rock") {
+                computerScore++;
+                return "You Lose! Paper beats Rock";
+            }
+
+            else if (player.toLowerCase() === "paper") {
+                return "Tie!";
+            }
+
+            else if (player.toLowerCase() === "scissors") {
+                playerScore++;
+                return "You Win! Scissor beats Paper";
+            }
+
+            else {
+                return "Invalid Option.";
+            }
+
+        case "Scissors":
+            if (player.toLowerCase() === "rock") {
+                playerScore++;
+                return "You Win! Rock beats Scissors";
+            }
+
+            else if (player.toLowerCase() === "paper") {
+                computerScore++;
+                return "You Lose! Scissors beats Paper";
+            }
+
+            else if (player.toLowerCase() === "scissors") {
+                return "Tie!";
+            }
+
+            else {
+                return "Invalid Option.";
+            }
+    }
+}
