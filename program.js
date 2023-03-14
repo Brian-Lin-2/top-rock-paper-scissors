@@ -8,19 +8,10 @@ let computerScore = 0;
 
 // Create eventListeners for each button.
 rps.forEach((value) => {
+    // Figure out how to call callback functions with parameters.
     value.addEventListener("click", () => {
         // Run the function depending on the class name.
-        if (value.className === 'rock') {
-            result.textContent = playRound("rock", getComputerChoice());
-        }
-
-        else if (value.className === 'paper') {
-            result.textContent = playRound("paper", getComputerChoice());
-        }
-
-        else if (value.className === "scissors") {
-            result.textContent = playRound("scissors", getComputerChoice());
-        }
+        result.textContent = playRound(value.className, getComputerChoice());
 
         // Update the score after each game.
         playerScoreTotal.textContent = `Player: ${playerScore}`;
