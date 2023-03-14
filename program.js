@@ -79,21 +79,22 @@ let playRound = (player, computer) => {
 // game();
 
 const rps = document.querySelectorAll('button');
+const result = document.querySelector('.results');
 
 // Create eventListeners for each button.
 rps.forEach((value) => {
     value.addEventListener("click", () => {
         // Run the function depending on the class name.
         if (value.className === 'rock') {
-            console.log(playRound("rock", getComputerChoice()));
+            result.textContent = playRound("rock", getComputerChoice());
         }
 
         else if (value.className === 'paper') {
-            console.log(playRound("paper", getComputerChoice()));
+            result.textContent = playRound("paper", getComputerChoice());
         }
 
         else if (value.className === "scissors") {
-            console.log(playRound("scissors", getComputerChoice()));
+            result.textContent = playRound("scissors", getComputerChoice());
         }
     })
 })
