@@ -25,8 +25,6 @@ let playRound = (player, computer) => {
                 return "Invalid Option.";
             }
 
-            break;
-
         case "Paper":
             if (player.toLowerCase() === "rock") {
                 return "You Lose! Paper beats Rock";
@@ -44,8 +42,6 @@ let playRound = (player, computer) => {
                 return "Invalid Option.";
             }
 
-            break;
-
         case "Scissors":
             if (player.toLowerCase() === "rock") {
                 return "You Win! Rock beats Scissors";
@@ -62,8 +58,6 @@ let playRound = (player, computer) => {
             else {
                 return "Invalid Option.";
             }
-
-            break;
     }
 }
 
