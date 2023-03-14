@@ -67,13 +67,33 @@ let playRound = (player, computer) => {
     }
 }
 
-let game = () => {
-    // Play the rock paper scissors 5 times.
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Enter rock, paper, or scissors");
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    }
-}
+// let game = () => {
+//     // Play the rock paper scissors 5 times.
+//     for (let i = 0; i < 5; i++) {
+//         const playerSelection = prompt("Enter rock, paper, or scissors");
+//         const computerSelection = getComputerChoice();
+//         console.log(playRound(playerSelection, computerSelection));
+//     }
+// }
 
-game();
+// game();
+
+const rps = document.querySelectorAll('button');
+
+// Create eventListeners for each button.
+rps.forEach((value) => {
+    value.addEventListener("click", () => {
+        // Run the function depending on the class name.
+        if (value.className === 'rock') {
+            console.log(playRound("rock", getComputerChoice()));
+        }
+
+        else if (value.className === 'paper') {
+            console.log(playRound("paper", getComputerChoice()));
+        }
+
+        else if (value.className === "scissors") {
+            console.log(playRound("scissors", getComputerChoice()));
+        }
+    })
+})
