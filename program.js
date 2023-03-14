@@ -14,6 +14,14 @@ rps.forEach((value) => {
         result.textContent = playRound(value.className, getComputerChoice());
 
         // Update the score after each game.
+        if (playerScore === 5) {
+            result.textContent = "Player Wins!";
+        }
+
+        else if (computerScore === 5) {
+            result.textContent = "Computer Wins!";
+        }
+
         playerScoreTotal.textContent = `Player: ${playerScore}`;
         computerScoreTotal.textContent = `Computer: ${computerScore}`;
     })
